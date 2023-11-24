@@ -1,6 +1,13 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+using std::cin;
+using std::cout;
+using std::string;
+
+int encrypt(string plain_text); // encrypts "plain_text" and returns the int ciphertext
+
+string decrypt(int cipher_text); // decrypts "cipher_text" and returns the translated string plaintext
 
 int main() {
     // step 1: read in the content of a given input file, line by line, possibly into a string array
