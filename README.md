@@ -1,4 +1,4 @@
-**FILE ENCRYPTION/DECRYPTION APP**
+**ENSCRIB: A FILE ENCRYPTION/DECRYPTION APP**
 
 This is a simple C++ application that encrypts/decrypts files using the RSA algorithm.
 
