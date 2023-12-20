@@ -25,4 +25,18 @@ int main() {
 vector <string> read_lines(string file_name) {
     // step 1: open the file
     ifstream input; // the file stream object
+    input.open(file_name); // opening the file
+    // step 2: make sure the file is open
+    if (!input.is_open())
+        exit(1); // exit if file didn't open
+    // step 3: make the result vector
+    vector <string> result;
+    // step 4: read each line of the file into the result vector
+    while (!input.eof()) {
+        // as long as we're not at the end of the file, we'll read each line of it
+        string newLine = ""; // the variable to store each line of the file
+        getline(input, newLine); // the big step: reading in the current line from our file into 'newLine' str
+        result.push_back(newLine); // add the 'newLine' var (with our current file line's content) into 'result' vector
+    }
+    return result; // return the vector
 }
