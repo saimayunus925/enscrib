@@ -2,8 +2,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
-using std::cin;
-using std::cout;
+using std::cin, std::cout, std::ifstream, std::ofstream;
 using std::string;
 using std::vector;
 
@@ -21,4 +20,9 @@ int main() {
     // bonus step 5: decrypt each line of the output file and check if the result is the same as the plaintext file
     std::cout << "Hello, World!" << std::endl;
     return 0;
+}
+
+vector <string> read_lines(string file_name) {
+    // step 1: open the file
+    ifstream input; // the file stream object
 }
