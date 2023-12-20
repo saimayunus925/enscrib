@@ -19,7 +19,10 @@ int main() {
     // step 4: encrypt each line of the input file, then write each line to an output file
     // bonus step 5: decrypt each line of the output file and check if the result is the same as the plaintext file
     std::cout << "Hello, World!" << std::endl;
-    vector <string> fileContent = read_lines("TEST.txt"); // read all lines from a test file into 'fileContent' vector
+    string FILENAME; // string to store input file name
+    cout << "Enter input file name: ";
+    getline(cin, FILENAME); // read in file name from user
+    vector <string> fileContent = read_lines(FILENAME); // read all lines from a test file into 'fileContent' vector
     for (int i = 0; i < fileContent.size(); i++) // testing purposes: print each line of 'fileContent' to see if the file input worked
         cout << "Element" << i+1 << ": " << fileContent.at(i) << endl;
     return 0;
