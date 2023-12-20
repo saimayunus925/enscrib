@@ -4,4 +4,3 @@ cmake-build-debug/
 CMakeLists.txt
 plaintext.txt
 ciphertext.txt
-testFile.txt
