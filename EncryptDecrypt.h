@@ -1,0 +1,14 @@
+//
+// Created by Saima Yunus on 12/23/23.
+//
+
+#ifndef FILE_ENCRYPTION_PROJECT_ENCRYPTDECRYPT_H
+#define FILE_ENCRYPTION_PROJECT_ENCRYPTDECRYPT_H
+
+
+class EncryptDecrypt {
+
+};
+
+
+#endif //FILE_ENCRYPTION_PROJECT_ENCRYPTDECRYPT_H
