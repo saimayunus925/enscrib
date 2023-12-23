@@ -2,6 +2,8 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <cmath>
+
 using std::cin, std::cout, std::endl, std::ifstream, std::ofstream;
 using std::string;
 using std::vector;
@@ -49,4 +51,14 @@ vector <string> read_lines(string file_name) {
     }
     input.close(); // closing file now that we're done with it
     return result; // return the vector
+}
+
+bool isPrime(long n) {
+    // step 1: If the given number is less than 2, it is not prime
+    if (n < 2)
+        return false;
+    // step 2: Iterate from 2 to the square root of the given number (rounded up to the nearest integer)
+    // step 3: For each iteration, check if the number is divisible by the current iteration value.
+    // If it is divisible, the number is not prime.
+    // If no divisors are found for all iterations, the number is prime.
 }
