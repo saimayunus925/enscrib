@@ -29,6 +29,7 @@ int main() {
     isPrimeTest(121);
     // test case for File_IO class: will "read_input_lines()" work for our testFile.txt file?
     File_IO test_obj("../testFile.txt"); // created new File_IO object and passed the path to our input file in the constructor
+    test_obj.read_input_lines(); // reads content of testFile into object's 'file_content' vector
     test_obj.print_content(); // prints content of 'file_content' vector (should be each line of input file at this point)
     return 0;
 }
