@@ -26,6 +26,7 @@ class File_IO {
         File_IO(string INPUT_FILENAME, string OUTPUT_FILENAME); // parametrized constructor with both file names (input file and output file)
         void read_input_lines(); // reads each line of the input file into 'file_content' vector
         void write_output_lines(); // writes each line of 'file_content' vector into output file
+        void print_content(); // prints current content of 'file_content' vector
 };
 
 

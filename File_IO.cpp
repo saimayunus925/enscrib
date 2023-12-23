@@ -49,3 +49,9 @@ void File_IO::read_input_lines() {
     }
     input.close(); // closing file now that we're done with it
 }
+
+void File_IO::print_content() {
+    // prints stuff in 'file_content' vector
+    for (int i = 0; i < this->file_content.size(); i++)
+        cout << "Line " << i+1 << ": " << this->file_content.at(i) << endl;
+}
