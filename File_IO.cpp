@@ -45,7 +45,7 @@ void File_IO::read_input_lines() {
         // as long as we're not at the end of the file, we'll read each line of it
         string newLine = ""; // the variable to store each line of the file
         getline(input, newLine); // the big step: reading in the current line from our file into 'newLine' str
-        this->file_content.push_back(newLine) // add the 'newLine' var (with our current file line's content) into 'file_content' vector
+        this->file_content.push_back(newLine); // add the 'newLine' var (with our current file line's content) into 'file_content' vector
     }
     input.close(); // closing file now that we're done with it
 }
