@@ -10,7 +10,7 @@ using std::vector;
 
 vector <string> read_lines(string file_name); // reads each line of the file 'file_name' into a string vector, returns that vector
 
-bool isPrime(long n); // checks if the long int 'n' is prime, returns true if so and false if not
+bool isPrime(long N); // checks if the long int 'n' is prime, returns true if so and false if not
 
 long RSA_encrypt(string plain_text); // encrypts (with RSA) "plain_text" and returns the int ciphertext
 
@@ -53,12 +53,15 @@ vector <string> read_lines(string file_name) {
     return result; // return the vector
 }
 
-bool isPrime(long n) {
+bool isPrime(long N) {
     // step 1: If the given number n is less than 2, it is not prime
-    if (n < 2)
+    if (N < 2)
         return false;
     // step 2: Iterate from 2 to (n-1) -> all the possible factors of n if n isn't prime
-    // step 3: For each iteration, check if the number is divisible by the current iteration value.
-    // If it is divisible, the number is not prime.
-    // If no divisors are found for all iterations, the number is prime.
+    for (int f = 2; f < N; f++) {
+        // step 3: For each possible factor f of our num n, check if n is divisible by the factor (the current iteration value).
+        if (N % f == 0)
+            return false; // If it is divisible, the number is not prime.
+    }
+    return true; // If no divisors are found for all iterations, the number is prime.
 }
