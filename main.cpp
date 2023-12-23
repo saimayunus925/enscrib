@@ -8,6 +8,8 @@ using std::vector;
 
 vector <string> read_lines(string file_name); // reads each line of the file 'file_name' into a string vector, returns that vector
 
+bool isPrime(long n); // checks if the long int 'n' is prime, returns true if so and false if not
+
 long encrypt(string plain_text); // encrypts "plain_text" and returns the int ciphertext
 
 string decrypt(long cipher_text); // decrypts "cipher_text" and returns the translated string plaintext
