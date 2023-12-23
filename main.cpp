@@ -12,6 +12,8 @@ vector <string> read_lines(string file_name); // reads each line of the file 'fi
 
 bool isPrime(long N); // checks if the long int 'n' is prime, returns true if so and false if not
 
+void isPrimeTest(long N); // uses isPrime() to check if N is prime, prints true if so or false if not
+
 long RSA_encrypt(string plain_text); // encrypts (with RSA) "plain_text" and returns the int ciphertext
 
 string RSA_decrypt(long cipher_text); // decrypts (with RSA) "cipher_text" and returns the translated string plaintext
@@ -27,6 +29,13 @@ int main() {
     vector <string> fileContent = read_lines("../testFile.txt"); // read all lines from a test file into 'fileContent' vector
     for (int i = 0; i < fileContent.size(); i++) // testing purposes: print each line of 'fileContent' to see if the file input worked
         cout << "Element " << i+1 << ": " << fileContent.at(i) << endl;
+    // test cases for isPrime(): 2 (is prime), 7 (is prime), 15 (is NOT prime), 23 (is prime), 50 (is NOT prime), 121 (is NOT prime)
+    isPrimeTest(2);
+    isPrimeTest(7);
+    isPrimeTest(15);
+    isPrimeTest(23);
+    isPrimeTest(50);
+    isPrimeTest(121);
     return 0;
 }
 
@@ -64,4 +73,10 @@ bool isPrime(long N) {
             return false; // If it is divisible, the number is not prime.
     }
     return true; // If no divisors are found for all iterations, the number is prime.
+}
+
+void isPrimeTest(long N) {
+    bool result = isPrime(N); // true if N is prime, false if N isn't prime
+    string trueOrFalse = (result == true) ? "TRUE" : "FALSE"; // this string is "TRUE" if N is prime, or "FALSE" if N isn't prime
+    cout << N << " is prime: " << trueOrFalse << endl; // prints "N is prime: TRUE/FALSE" depending on result
 }
