@@ -23,6 +23,7 @@ class EncryptDecrypt {
     public:
         EncryptDecrypt(); // default constructor
         EncryptDecrypt(string PLAINTEXT); // parametrized constructor (parameter for plaintext string)
+        long RSA_generate_key(); // generates key for RSA algorithm, returns the key
         long RSA_encrypt(); // encrypts (with RSA) "plain_text" and stores the result in "cipher_text", then returns "cipher_text" value
         string RSA_decrypt(); // decrypts (with RSA) "cipher_text" and stores the result in "plain_text", then returns "plain_text" value
         bool isPrime(long N); // checks if the long int 'n' is prime, returns true if so and false if not (used for RSA)

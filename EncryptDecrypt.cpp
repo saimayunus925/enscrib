@@ -49,3 +49,11 @@ long EncryptDecrypt::generate_random_large_prime() {
     else
         return -1; // otherwise, if the number isn't prime, return -1 as a "no match found" signal
 }
+
+long EncryptDecrypt::RSA_generate_key() {
+    // generate key for RSA algorithm
+    // step 1: Choose two large prime numbers, p and q.
+    long p = generate_random_large_prime(), q = generate_random_large_prime();
+    long N = p * q; // step 2: calculate N (product of p and q). The harder it is to factor N, the more secure our algorithm is
+    long eulerTotient = (p-1) * (q-1); // step 3: find Euler's totient funcition for p and q.
+}
