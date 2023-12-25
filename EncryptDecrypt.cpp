@@ -27,3 +27,13 @@ bool EncryptDecrypt::isPrime(long N) {
     }
     return true; // If no divisors are found for all iterations, the number is prime.
 }
+
+long EncryptDecrypt::generate_random_large_prime() {
+    time_t current_time = time(NULL); // timestamp for our random number generator
+    srand(current_time); // seed (using prev timestamp) for the generator
+    long randomPrime = rand() % 100000000000000; // todo: make this an n-bit random number generator
+    if (isPrime(randomPrime))
+        return randomPrime; // if the large prime number is prime, return it
+    else
+        return -1; // otherwise, if the number isn't prime, return -1 as a "no match found" signal
+}
