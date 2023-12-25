@@ -25,6 +25,8 @@ class EncryptDecrypt {
         EncryptDecrypt(string PLAINTEXT); // parametrized constructor (parameter for plaintext string)
         void RSA_encrypt(); // encrypts (with RSA) "plain_text" and stores the result in "ciphertext"
         void RSA_decrypt(); // decrypts (with RSA) "cipher_text" and stores the result in "plaintext"
+        bool isPrime(long N); // checks if the long int 'n' is prime, returns true if so and false if not (used for RSA)
+        long generate_random_large_prime(); // randomly generates a large prime number (for the RSA algorithm)
         // TODO: make encrypt/decrypt functions for AES, DES, and other cryptography algorithms
 };
 

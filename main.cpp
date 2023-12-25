@@ -13,6 +13,8 @@ bool isPrime(long N); // checks if the long int 'n' is prime, returns true if so
 
 void isPrimeTest(long N); // uses isPrime() to check if N is prime, prints true if so or false if not
 
+long generate_random_large_prime(); // randomly generates a large prime number (for the RSA algorithm)
+
 int main() {
     // step 1: read in the content of a given input file, line by line, possibly into a string array
     // step 2: write the encryption function (reads in a plaintext string and encrypts it with RSA)
@@ -51,4 +53,14 @@ void isPrimeTest(long N) {
     bool result = isPrime(N); // true if N is prime, false if N isn't prime
     string trueOrFalse = (result == true) ? "TRUE" : "FALSE"; // this string is "TRUE" if N is prime, or "FALSE" if N isn't prime
     cout << N << " is prime: " << trueOrFalse << endl; // prints "N is prime: TRUE/FALSE" depending on result
+}
+
+long generate_random_large_prime() {
+    time_t current_time = time(NULL); // timestamp for our random number generator
+    srand(current_time); // seed (using prev timestamp) for the generator
+    long randomPrime = rand() % 100000000000000; // todo: make this an n-bit random number generator
+    if (isPrime(randomPrime))
+        return randomPrime; // if the large prime number is prime, return it
+    else
+        return -1; // otherwise, if the number isn't prime, return -1 as a "no match found" signal
 }
