@@ -15,6 +15,18 @@ using std::vector;
 
 // TODO: write the encrypt/decrypt algorithms for RSA, AES, and DES. Make sure they encrypt plaintext files and decrypt resulting ciphertext correctly.
 
+EncryptDecrypt::EncryptDecrypt() { // default constructor: initialize all values to 0/null/empty
+    this->cipher_text = 0;
+    this->plain_text = "";
+    this->KEY = 0;
+}
+
+EncryptDecrypt::EncryptDecrypt(std::string PLAINTEXT) { // parametrized constructor: initialize 'plain_text' variable to PLAINTEXT parameter
+    this->cipher_text = 0;
+    this->plain_text = PLAINTEXT;
+    this->KEY = 0;
+}
+
 bool EncryptDecrypt::isPrime(long N) {
     // step 1: If the given number n is less than 2, it is not prime
     if (N < 2)
