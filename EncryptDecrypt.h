@@ -23,10 +23,11 @@ class EncryptDecrypt {
     public:
         EncryptDecrypt(); // default constructor
         EncryptDecrypt(string PLAINTEXT); // parametrized constructor (parameter for plaintext string)
-        long RSA_generate_key(); // generates key for RSA algorithm, returns the key
+        void RSA_generate_key(); // generates key for RSA algorithm, stores the key in EncryptDecrypt class's 'KEY' variable/property
         long RSA_encrypt(); // encrypts (with RSA) "plain_text" and stores the result in "cipher_text", then returns "cipher_text" value
         string RSA_decrypt(); // decrypts (with RSA) "cipher_text" and stores the result in "plain_text", then returns "plain_text" value
         bool isPrime(long N); // checks if the long int 'n' is prime, returns true if so and false if not (used for RSA)
+        bool isCoPrime(long N1, long N2); // checks if the long ints N1 and N2 are coprime, returns true if so and false if not (used for RSA)
         long generate_random_large_prime(); // randomly generates a large prime number (for the RSA algorithm)
         // TODO: make encrypt/decrypt functions for AES, DES, and other cryptography algorithms
 };

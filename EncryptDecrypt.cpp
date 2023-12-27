@@ -7,6 +7,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <numeric>
 #include <cmath>
 
 using std::cin, std::cout, std::endl, std::ifstream, std::ofstream;
@@ -40,6 +41,12 @@ bool EncryptDecrypt::isPrime(long N) {
     return true; // If no divisors are found for all iterations, the number is prime.
 }
 
+bool EncryptDecrypt::isCoPrime(long N1, long N2) {
+    // method: find GCD of N1 and N2 using Euclid's algorithm. If the GCD is 1, N1 and N2 are coprime.
+    /*
+    */
+}
+
 long EncryptDecrypt::generate_random_large_prime() {
     time_t current_time = time(NULL); // timestamp for our random number generator
     srand(current_time); // seed (using prev timestamp) for the generator
@@ -50,10 +57,11 @@ long EncryptDecrypt::generate_random_large_prime() {
         return -1; // otherwise, if the number isn't prime, return -1 as a "no match found" signal
 }
 
-long EncryptDecrypt::RSA_generate_key() {
-    // generate key for RSA algorithm
+void EncryptDecrypt::RSA_generate_key() {
+    // generates key for RSA algorithm, stores it in EncryptDecrypt class's KEY field
     // step 1: Choose two large prime numbers, p and q.
     long p = generate_random_large_prime(), q = generate_random_large_prime();
     long N = p * q; // step 2: calculate N (product of p and q). The harder it is to factor N, the more secure our algorithm is
-    long eulerTotient = (p-1) * (q-1); // step 3: find Euler's totient funcition for p and q.
+    long eulerTotient = (p-1) * (q-1); // step 3: find Euler's totient function, phi(n), for p and q.
+    // step 4: now that we have phi(n), we need to find an int e SUCH THAT e > 1 and e < phi(n), i.e. 1 < e < phi(n). Also, e must be coprime with phi(n) - no common factors other than 1.
 }
