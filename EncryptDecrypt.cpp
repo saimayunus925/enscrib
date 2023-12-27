@@ -44,6 +44,14 @@ bool EncryptDecrypt::isPrime(long N) {
 bool EncryptDecrypt::isCoPrime(long N1, long N2) {
     // method: find GCD of N1 and N2 using Euclid's algorithm. If the GCD is 1, N1 and N2 are coprime.
     /*
+    Euclidean Algorithm for GCD(N1, N2):
+     * N1 = 0: GCD(N1, N2) = N2, b/c GCD(0, N2) = N2. Then check if N2 = 1, return true or false accordingly.
+     * N2 = 0: GCD(N1, N2) = N1, b/c GCD(N1, 0) = N1. Then check if N1 = 1, return true or false accordingly.
+     * otherwise, write N1 in quotient form: N1 = (N2 * Q) + R
+     * basically, get R (remainder) of N1/N2 with modulus operator, then find GCD(N2, R) since GCD(N1, N2) == GCD(N2, R)
+     * base case: N1 = 0 or N2 = 0
+     * recursive case: divide N1 and N2 and get remainder, call GCD on N2 and remainder
+    SOURCE: https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
     */
 }
 
