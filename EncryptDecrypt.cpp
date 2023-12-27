@@ -2,29 +2,28 @@
 // Created by Saima Yunus on 12/23/23.
 //
 
-#include "EncryptDecrypt.h"
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <vector>
 #include <cmath>
+#include <cstdlib>
+#include "EncryptDecrypt.h"
 
-using std::cin, std::cout, std::endl, std::ifstream, std::ofstream;
-using std::string;
-using std::vector;
+using namespace std;
 
 // TODO: write the encrypt/decrypt algorithms for RSA, AES, and DES. Make sure they encrypt plaintext files and decrypt resulting ciphertext correctly.
 
 EncryptDecrypt::EncryptDecrypt() { // default constructor: initialize all values to 0/null/empty
     this->cipher_text = 0;
     this->plain_text = "";
-    this->KEY = 0;
+    this->SYMMETRIC_KEY = 0;
 }
 
-EncryptDecrypt::EncryptDecrypt(std::string PLAINTEXT) { // parametrized constructor: initialize 'plain_text' variable to PLAINTEXT parameter
+EncryptDecrypt::EncryptDecrypt(string PLAINTEXT) { // parametrized constructor: initialize 'plain_text' variable to PLAINTEXT parameter
     this->cipher_text = 0;
     this->plain_text = PLAINTEXT;
-    this->KEY = 0;
+    this->SYMMETRIC_KEY = 0;
 }
 
 bool EncryptDecrypt::isPrime(long N) {
@@ -69,7 +68,7 @@ bool EncryptDecrypt::isCoPrime(long N1, long N2) {
 }
 
 long EncryptDecrypt::generate_random_large_prime() {
-    time_t current_time = time(NULL); // timestamp for our random number generator
+    time_t current_time = time(nullptr); // timestamp for our random number generator
     srand(current_time); // seed (using prev timestamp) for the generator
     long randomPrime = rand() % 100000000000000; // todo: make this an n-bit random number generator
     if (isPrime(randomPrime))
@@ -79,10 +78,19 @@ long EncryptDecrypt::generate_random_large_prime() {
 }
 
 void EncryptDecrypt::RSA_generate_key() {
+    time_t current_time = time(nullptr); // timestamp for our random number generator
+    srand(current_time); // seed (using prev timestamp) for the generator
     // generates key for RSA algorithm, stores it in EncryptDecrypt class's KEY field
     // step 1: Choose two large prime numbers, p and q.
     long p = generate_random_large_prime(), q = generate_random_large_prime();
     long N = p * q; // step 2: calculate N (product of p and q). The harder it is to factor N, the more secure our algorithm is
     long eulerTotient = (p-1) * (q-1); // step 3: find Euler's totient function, phi(n), for p and q.
     // step 4: now that we have phi(n), we need to find an int e SUCH THAT e > 1 and e < phi(n), i.e. 1 < e < phi(n). Also, e must be coprime with phi(n) - no common factors other than 1.
+    long e = rand() % eulerTotient + 1; // generates a random number between 1 and phi(n), AKA e
+    if (!isCoPrime(e, eulerTotient)) {
+        // if e and phi(n) aren't coprime, print an error msg and exit.
+        cout << "ERROR - e and phi(n) are not coprime" << endl;
+        exit(1);
+    }
+    // at this point, we know that e is between 1 and phi(n) AND e is coprime with phi(n).
 }

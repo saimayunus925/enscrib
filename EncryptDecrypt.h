@@ -17,7 +17,9 @@ using std::vector;
 
 class EncryptDecrypt {
     private:
-        long KEY; // symmetric key we'll use to encrypt/decrypt stuff
+        long PUBLIC_KEY[2]; // public key we'll use to encrypt/decrypt stuff
+        long PRIVATE_KEY[2]; // private key we'll use to encrypt/decrypt stuff
+        long SYMMETRIC_KEY; // symmetric key we'll use to encrypt/decrypt stuff, for algorithms that only need a symmetric key
         string plain_text; // plaintext to be encrypted
         long cipher_text; // encrypted resulting ciphertext to be decrypted
         bool isPrime(long N); // checks if the long int 'n' is prime, returns true if so and false if not (used for RSA)
@@ -27,7 +29,7 @@ class EncryptDecrypt {
     public:
         EncryptDecrypt(); // default constructor
         EncryptDecrypt(string PLAINTEXT); // parametrized constructor (parameter for plaintext string)
-        void RSA_generate_key(); // generates key for RSA algorithm, stores the key in EncryptDecrypt class's 'KEY' variable/property
+        void RSA_generate_keys(); // generates public/private keys for RSA algorithm, stores the keys in EncryptDecrypt class's "PUBLIC KEY" and "PRIVATE KEY" variables/properties
         long RSA_encrypt(); // encrypts (with RSA) "plain_text" and stores the result in "cipher_text", then returns "cipher_text" value
         string RSA_decrypt(); // decrypts (with RSA) "cipher_text" and stores the result in "plain_text", then returns "plain_text" value
         // TODO: make encrypt/decrypt functions for AES, DES, and other cryptography algorithms

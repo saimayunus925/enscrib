@@ -2,13 +2,13 @@
 // Created by Saima Yunus on 12/23/23.
 //
 
-#ifndef FILE_ENCRYPTION_PROJECT_FILE_IO_H
-#define FILE_ENCRYPTION_PROJECT_FILE_IO_H
-
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <vector>
+
+#ifndef FILE_ENCRYPTION_PROJECT_FILE_IO_H
+#define FILE_ENCRYPTION_PROJECT_FILE_IO_H
 
 using std::cin, std::cout, std::endl, std::ifstream, std::ofstream;
 using std::string;
