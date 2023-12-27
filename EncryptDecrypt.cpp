@@ -64,7 +64,8 @@ long EncryptDecrypt::GCD(long N1, long N2) {
 
 bool EncryptDecrypt::isCoPrime(long N1, long N2) {
     // method: find GCD of N1 and N2 using Euclid's algorithm. If the GCD is 1, N1 and N2 are coprime.
-    return true;
+    bool RESULT = (this->GCD(N1, N2) == 1) ? true : false; // if GCD of N1 and N2 is 1, RESULT is true. Else, it's false.
+    return RESULT;
 }
 
 long EncryptDecrypt::generate_random_large_prime() {
