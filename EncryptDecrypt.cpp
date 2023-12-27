@@ -7,7 +7,6 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include <numeric>
 #include <cmath>
 
 using std::cin, std::cout, std::endl, std::ifstream, std::ofstream;
@@ -41,8 +40,7 @@ bool EncryptDecrypt::isPrime(long N) {
     return true; // If no divisors are found for all iterations, the number is prime.
 }
 
-bool EncryptDecrypt::isCoPrime(long N1, long N2) {
-    // method: find GCD of N1 and N2 using Euclid's algorithm. If the GCD is 1, N1 and N2 are coprime.
+long EncryptDecrypt::GCD(long N1, long N2) {
     /*
     Euclidean Algorithm for GCD(N1, N2):
      * N1 = 0: GCD(N1, N2) = N2, b/c GCD(0, N2) = N2. Then check if N2 = 1, return true or false accordingly.
@@ -53,19 +51,20 @@ bool EncryptDecrypt::isCoPrime(long N1, long N2) {
      * recursive case: divide N1 and N2 and get remainder, call GCD on N2 and remainder
     SOURCE: https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
     */
-    long GCD = 0; // stores the GCD of N1 and N2
-    if (N1 == 0 || N2 == 0) {
-        // base cases: N1 = 0 or N2 = 0
+    if (N1 == 0 || N2 == 0) { // BASE CASES
         if (N1 == 0) // N1 = 0: GCD(N1, N2) = N2, b/c GCD(0, N2) = N2
-            GCD = N2;
+            return N2;
         else if (N2 == 0) // N2 = 0: GCD(N1, N2) = N1, b/c GCD(N1, 0) = N1
-            GCD = N1;
-        bool TRUTH_VALUE = (GCD == 1) ? true : false; // if GCD = 1, TRUTH_VALUE = true, and N1/N2 are coprime. Otherwise, TRUTH_VALUE = false, and N1/N2 aren't coprime.
-        return TRUTH_VALUE;
+            return N1;
     }
-    // recursive case: divide N1 and N2 and get remainder, call GCD on N2 and remainder
-    long remainder = N1 % N2; // the remainder of N1/N2
-    return isCoPrime(N2, remainder); // call GCD on N2 and remainder
+    // RECURSIVE CASE: divide N1 and N2 and get remainder, call GCD on N2 and remainder
+    long R = N1 % N2; // R: remainder of N1/N2
+    return GCD(N2, R); // find GCD of N2 and R (remainder)
+}
+
+bool EncryptDecrypt::isCoPrime(long N1, long N2) {
+    // method: find GCD of N1 and N2 using Euclid's algorithm. If the GCD is 1, N1 and N2 are coprime.
+    return true;
 }
 
 long EncryptDecrypt::generate_random_large_prime() {
