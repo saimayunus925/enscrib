@@ -22,3 +22,6 @@ c = (m^e) mod n.
 Decryption:
 * Compute the original message m using the private key (n, d) and the decryption formula:
 m = (c^d) mod n
+
+**PLAN FOR FUTURE UPDATES**
+* Write the AES and DES encryption/decryption algorithms, and use those to similarly encrypt the plaintext file and decrypt the ciphertext.
